@@ -16,5 +16,8 @@
     "url": "https://github.com/mindphreaked/qb-audit/issues"
   },
   "homepage": "https://github.com/mindphreaked/qb-audit#readme",
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
 }
