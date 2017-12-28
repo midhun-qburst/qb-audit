@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlPlugin = require('html-webpack-plugin')
-
+const HtmlPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/app.js',
@@ -12,21 +12,30 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, 
-        exclude: /node_modules/, 
-        loader: "babel-loader" }
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader',
+        }),
+      }
     ]
   },
   devServer: {
-    inline:true,
-    port:8085
+    inline: true,
+    port: 8085
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  plugins: [ 
+  plugins: [
     new HtmlPlugin({
       template: 'index.html'
-    })
+    }),
+    new ExtractTextPlugin('style.bundle.css')
   ]
 };
