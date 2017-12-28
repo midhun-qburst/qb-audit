@@ -17,14 +17,14 @@ module.exports = {
         loader: "babel-loader" }
     ]
   },
+  devServer: {
+    inline:true,
+    port:8085
+  },
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  plugins: [
-    // Configure HtmlPlugin to use our own index.html file
-    // as a template.
-    // Check out https://github.com/jantimon/html-webpack-plugin
-    // for the full list of options.
+  plugins: [ 
     new HtmlPlugin({
       template: 'index.html'
     })
