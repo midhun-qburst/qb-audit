@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mindphreaked/qb-audit#readme",
   "dependencies": {
+    "material-ui-datatables": "^0.18.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",

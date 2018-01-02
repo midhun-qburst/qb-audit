@@ -1,4 +1,6 @@
 import LoginPage from './components/LoginPage';
+import AuditeePage from './components/AuditeePage';
+
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
@@ -10,12 +12,16 @@ class App extends Component {
         return (
             <div>
             <nav>
-                <Button raised >
-              <Link to="/login">LoginPage</Link>
+                <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
+              <Link to="/login">LoginPage</Link>             
+              </Button>
+              <Button raised >
+              <Link to="/auditee">Auditee</Link>
               </Button>
             </nav>
             <div>
               <Route path="/login" component={LoginPage}/>
+              <Route path="/auditee" component={AuditeePage}/>
             </div>
           </div>
         )
