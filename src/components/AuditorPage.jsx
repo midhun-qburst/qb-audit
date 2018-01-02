@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/welcome-page.css";
+import Questionaire from "./Questionaire";
 import DataTables from "material-ui-datatables";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
@@ -9,31 +10,32 @@ import { TextField } from "rmwc/TextField";
 
 const tableColumns = [
   {
-    key: "rating",
-    label: "Rating"
+    key: "name",
+    label: "Auditee"
   },
   {
-    key: "duration",
-    label: "Duration"
+    key: "rating",
+    label: "Rating [upon 10]"
   }
 ];
 
 const tableData = [
   {
-    rating: "10/10",
-    duration: "Jan - Jun"
+    name: "John",
+    rating: "9"
   },
   {
-    rating: "6/10",
-    duration: "Jul - Dec"
+    name: "Jean",
+    rating: "8"
   }
 ];
-export default class AuditeePage extends Component {
+export default class AuditorPage extends Component {
   render() {
     return (
       <div>
-        <h1>Auditee Page</h1>
-        <MuiThemeProvider>
+        <h1>Auditor Page</h1>
+        <Questionaire/>
+        {/* <MuiThemeProvider>
           <DataTables
             height={"auto"}
             selectable={false}
@@ -48,7 +50,7 @@ export default class AuditeePage extends Component {
             page={1}
             count={100}
           />
-        </MuiThemeProvider>
+        </MuiThemeProvider> */}
       </div>
     );
   }

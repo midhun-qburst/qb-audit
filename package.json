@@ -23,6 +23,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
+    "react-star-ratings": "^1.4.0",
     "rmwc": "0.0.1-rc12"
   },
   "devDependencies": {
