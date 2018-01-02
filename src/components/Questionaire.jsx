@@ -1,25 +1,18 @@
 import React, { Component } from "react";
-import Grid, { GridCell } from "rmwc/Grid";
-import StarRatings from "react-star-ratings";
-
-
+import StarRatingsComponent from './StarRatingsComponent';
 
 export default class Questionaire extends Component {
   render() {
     return (
       <form action="">
-      <div>
-       <label htmlFor="">Performance </label> 
-       <StarRatings
-          rating={1}
-          isSelectable={true}
-          isAggregateRating={false}
-          changeRating={this.changeRating}
-          numOfStars={ 10 }
-          starWidthAndHeight={ '15px' }
-          starSpacing={'2px'}
-        />
-        </div>
+          <StarRatingsComponent parameter="Learning done in past 6 months  "/>
+          <StarRatingsComponent parameter="Projects in last 6 months"/>
+          <StarRatingsComponent parameter="UI "/>
+          <StarRatingsComponent parameter="Code "/>
+          <StarRatingsComponent parameter="Testing "/>
+          <StarRatingsComponent parameter="Performance"/>
+          <StarRatingsComponent parameter="Plugins & Tools "/>
+
       </form>
     );
   }
