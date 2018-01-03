@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../css/welcome-page.css";
-import Questionaire from "./Questionaire";
+import questionnaire from "./questionnaire";
 import DataTables from "material-ui-datatables";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
@@ -53,7 +53,7 @@ export default class AuditorPage extends Component {
             //onFilterValueChange={this.handleFilterValueChange}
             //onSortOrderChange={this.handleSortOrderChange}
             page={1}
-            count={100}
+            count={20}
           />
         </MuiThemeProvider>
       </div>
