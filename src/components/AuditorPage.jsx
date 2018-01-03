@@ -72,7 +72,7 @@ export default class AuditorPage extends Component {
           <DialogRoot>
             <DialogSurface>
               <DialogHeader>
-                <DialogHeaderTitle>Dialog Title</DialogHeaderTitle>
+                <DialogHeaderTitle>Audit Parameters</DialogHeaderTitle>
               </DialogHeader>
               <DialogBody>
                 <Questionnaire />
