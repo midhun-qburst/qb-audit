@@ -4,10 +4,6 @@ import Questionaire from "./Questionaire";
 import DataTables from "material-ui-datatables";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-import { Button } from "rmwc/Button";
-import { FormField } from "rmwc/FormField";
-import { TextField } from "rmwc/TextField";
-
 const tableColumns = [
   {
     key: "name",
@@ -30,12 +26,21 @@ const tableData = [
   }
 ];
 export default class AuditorPage extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+  handleCellClick = (event) => {
+    <Questionaire/>
+
+
+  }
+
   render() {
     return (
       <div>
         <h1>Auditor Page</h1>
-        <Questionaire/>
-        {/* <MuiThemeProvider>
+        <MuiThemeProvider>
           <DataTables
             height={"auto"}
             selectable={false}
@@ -43,14 +48,14 @@ export default class AuditorPage extends Component {
             columns={tableColumns}
             data={tableData}
             showCheckboxes={false}
-            // onCellClick={this.handleCellClick}
+            onCellClick={this.handleCellClick}
             //onCellDoubleClick={this.handleCellDoubleClick}
             //onFilterValueChange={this.handleFilterValueChange}
             //onSortOrderChange={this.handleSortOrderChange}
             page={1}
             count={100}
           />
-        </MuiThemeProvider> */}
+        </MuiThemeProvider>
       </div>
     );
   }
