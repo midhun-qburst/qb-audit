@@ -1,6 +1,7 @@
 import LoginPage from "./components/LoginPage";
 import AuditeePage from "./components/AuditeePage";
 import AuditorPage from "./components/AuditorPage";
+import Organizer from "./components/Organizer";
 
 import React, { Component } from "react";
 import { render } from "react-dom";
@@ -29,11 +30,17 @@ class App extends Component {
               Auditor
             </Button>
           </Link>
+          <Link to="/organizer">
+            <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
+              Organizer
+            </Button>
+          </Link>
         </nav>
         <div>
           <Route path="/login" component={LoginPage} />
           <Route path="/auditee" component={AuditeePage} />
           <Route path="/auditor" component={AuditorPage} />
+          <Route path="/organizer" component={Organizer} />
 
         </div>
       </div>

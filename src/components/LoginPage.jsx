@@ -33,7 +33,6 @@ export default class LoginPage extends Component {
     // this.state.user === "auditor" ? <Redirect to="/auditee"/> : null
   };
   render() {
-    debugger;
     return (
       <div>
         <h1>Code Audit Manager</h1>

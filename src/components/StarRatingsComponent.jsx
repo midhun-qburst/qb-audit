@@ -3,6 +3,11 @@ import StarRatings from "react-star-ratings";
 
 export default class StarRatingsComponent extends Component {
   
+
+  sendLabel = (rating)=> {debugger
+    this.props.func(this.props.keyLabel, rating);
+
+  }
   render() {
     return (
         <div>
@@ -11,7 +16,7 @@ export default class StarRatingsComponent extends Component {
             rating={this.props.rating}
             isSelectable={true}
             isAggregateRating={false}
-            changeRating={this.props.changeRating}
+            changeRating={this.sendLabel}
             numOfStars={10}
             starWidthAndHeight={"15px"}
             starSpacing={"2px"}

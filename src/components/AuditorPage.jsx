@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../css/welcome-page.css";
 import Questionnaire from "./Questionnaire";
 import DataTables from "material-ui-datatables";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -50,7 +49,7 @@ export default class AuditorPage extends Component {
   render() {
     return (
       <div>
-        <h1>Auditor Page</h1>
+        <h2>Auditor Page</h2>
         <MuiThemeProvider>
           <DataTables
             height={"auto"}

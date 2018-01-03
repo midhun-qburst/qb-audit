@@ -14,11 +14,17 @@ export default class Questionnaire extends Component {
       tools: 5
     }
   }
-  
+handleRating = (keyLabel, rating) => {debugger
+  this.setState((state)=>{
+      let newState = state;
+      newState[keyLabel] = rating;
+      return newState;
+  });
+}
   render() {
     return (
       <form action="">
-          <StarRatingsComponent parameter="Learning done in past 6 months  " rating={this.state.learning}/>
+          <StarRatingsComponent parameter="Learning done in past 6 months  " rating={this.state.learning} keyLabel="learning" func={this.handleRating}/>
           <StarRatingsComponent parameter="Projects in last 6 months " rating={this.state.projects}/>
           <StarRatingsComponent parameter="UI " rating={this.state.ui}/>
           <StarRatingsComponent parameter="Code " rating={this.state.code}/>
