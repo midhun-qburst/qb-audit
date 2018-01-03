@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import "../css/welcome-page.css";
-import questionnaire from "./questionnaire";
+import Questionnaire from "./Questionnaire";
 import DataTables from "material-ui-datatables";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import Dialog, {
+  DialogRoot,
+  DialogSurface,
+  DialogHeader,
+  DialogHeaderTitle,
+  DialogBody,
+  DialogFooter,
+  DialogFooterButton,
+  DialogBackdrop
+} from "rmwc/Dialog";
 
 const tableColumns = [
   {
@@ -26,15 +36,16 @@ const tableData = [
   }
 ];
 export default class AuditorPage extends Component {
-
   constructor(props) {
     super(props);
+    this.handleCellClick = this.handleCellClick.bind(this);
+    this.state = {
+      questionnaireIsOpen: false
+    };
   }
-  handleCellClick = (event) => {
-    <Questionaire/>
-
-
-  }
+  handleCellClick = event => {
+    this.setState({ questionnaireIsOpen: true });
+  };
 
   render() {
     return (
@@ -48,14 +59,32 @@ export default class AuditorPage extends Component {
             columns={tableColumns}
             data={tableData}
             showCheckboxes={false}
-            onCellClick={this.handleCellClick}
-            //onCellDoubleClick={this.handleCellDoubleClick}
-            //onFilterValueChange={this.handleFilterValueChange}
-            //onSortOrderChange={this.handleSortOrderChange}
+            onCellClick={this.handleCellClick}     
             page={1}
             count={20}
           />
         </MuiThemeProvider>
+
+        <Dialog
+          open={this.state.questionnaireIsOpen}
+          onClose={evt => this.setState({ questionnaireIsOpen: false })}
+        >
+          <DialogRoot>
+            <DialogSurface>
+              <DialogHeader>
+                <DialogHeaderTitle>Dialog Title</DialogHeaderTitle>
+              </DialogHeader>
+              <DialogBody>
+                <Questionnaire />
+              </DialogBody>
+              <DialogFooter>
+                <DialogFooterButton cancel>Cancel</DialogFooterButton>
+                <DialogFooterButton accept>Save</DialogFooterButton>
+              </DialogFooter>
+            </DialogSurface>
+            <DialogBackdrop />
+          </DialogRoot>
+        </Dialog>
       </div>
     );
   }

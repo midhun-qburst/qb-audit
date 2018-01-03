@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import StarRatingsComponent from './StarRatingsComponent';
 
-export default class questionnaire extends Component {
+export default class Questionnaire extends Component {
   render() {
     return (
       <form action="">
