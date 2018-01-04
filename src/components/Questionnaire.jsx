@@ -24,13 +24,13 @@ handleRating = (keyLabel, rating) => {debugger
   render() {
     return (
       <form action="">
-          <StarRatingsComponent parameter="Learning done in past 6 months  " rating={this.state.learning} keyLabel="learning" func={this.handleRating}/>
-          <StarRatingsComponent parameter="Projects in last 6 months " rating={this.state.projects}/>
-          <StarRatingsComponent parameter="UI " rating={this.state.ui}/>
-          <StarRatingsComponent parameter="Code " rating={this.state.code}/>
-          <StarRatingsComponent parameter="Testing " rating={this.state.testing}/>
-          <StarRatingsComponent parameter="Performance " rating={this.state.performance}/>
-          <StarRatingsComponent parameter="Plugins & Tools " rating={this.state.tools}/>
+          <StarRatingsComponent parameter="Learning done in past 6 months  " rating={this.state.learning} keyLabel="learning" handleRating={this.handleRating}/>
+          <StarRatingsComponent parameter="Projects in last 6 months " rating={this.state.projects} keyLabel="projects" handleRating={this.handleRating}/>
+          <StarRatingsComponent parameter="UI " rating={this.state.ui} keyLabel="ui" handleRating={this.handleRating}/>
+          <StarRatingsComponent parameter="Code " rating={this.state.code} keyLabel="code" handleRating={this.handleRating}/>
+          <StarRatingsComponent parameter="Testing " rating={this.state.testing} keyLabel="testing" handleRating={this.handleRating}/>
+          <StarRatingsComponent parameter="Performance " rating={this.state.performance} keyLabel="performance" handleRating={this.handleRating}/>
+          <StarRatingsComponent parameter="Plugins & Tools " rating={this.state.tools} keyLabel="tools" handleRating={this.handleRating}/>
 
       </form>
     );

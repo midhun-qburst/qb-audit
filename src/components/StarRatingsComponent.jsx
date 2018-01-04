@@ -5,7 +5,7 @@ export default class StarRatingsComponent extends Component {
   
 
   sendLabel = (rating)=> {debugger
-    this.props.func(this.props.keyLabel, rating);
+    this.props.handleRating(this.props.keyLabel, rating);
 
   }
   render() {
