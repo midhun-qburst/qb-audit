@@ -11,7 +11,8 @@ export default class LoginPage extends Component {
     this.state = {
       user: "",
       password: "",
-      isLoggedIn: false
+      isLoggedIn: false,
+      userType: ""
     };
   }
 
@@ -24,7 +25,7 @@ export default class LoginPage extends Component {
   };
   handleSubmit = () => {
     debugger;
-    this.setState({ isLoggedIn: true });
+    this.setState({ isLoggedIn: true, userType: this.state.user });
     const x = this.state.isLoggedIn;
     // if (this.state.user === "auditee") {
 
@@ -33,33 +34,40 @@ export default class LoginPage extends Component {
     // this.state.user === "auditor" ? <Redirect to="/auditee"/> : null
   };
   render() {
-    return (
-      <div>
-        <h1>Code Audit Manager</h1>
-        {this.state.isloggedIn && <Redirect to="/auditee" />}
-        <FormField className="login-card">
-          <TextField
-            label="Username"
-            id="username"
-            onChange={this.handleUserName}
-          />
-          <div>
+    if (this.state.isLoggedIn && this.state.userType == "auditee")
+      return <Redirect from={"/login"} to={"/auditee"} />;
+    else if (this.state.isLoggedIn && this.state.userType == "auditor")
+      return <Redirect from={"/login"} to={"/auditor"} />;
+    else if (this.state.isLoggedIn && this.state.userType == "organizer")
+      return <Redirect from={"/login"} to={"/organizer"} />;
+    else {
+      return (
+        <div>
+          <h1>Code Audit Manager</h1>
+          <FormField className="login-card">
             <TextField
-              label="Password"
-              id="password"
-              type="password"
-              onChange={this.handlePassword}
+              label="Username"
+              id="username"
+              onChange={this.handleUserName}
             />
-          </div>
-          <Button
-            raised
-            theme={["primary-bg", "text-primary-on-secondary"]}
-            onClick={this.handleSubmit}
-          >
-            login
-          </Button>
-        </FormField>
-      </div>
-    );
+            <div>
+              <TextField
+                label="Password"
+                id="password"
+                type="password"
+                onChange={this.handlePassword}
+              />
+            </div>
+            <Button
+              raised
+              theme={["primary-bg", "text-primary-on-secondary"]}
+              onClick={this.handleSubmit}
+            >
+              login
+            </Button>
+          </FormField>
+        </div>
+      );
+    }
   }
 }
