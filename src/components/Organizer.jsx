@@ -4,6 +4,7 @@ import DataTables from "material-ui-datatables";
 import Select from "rmwc/Select";
 import Button from "rmwc/Button";
 import Snackbar from "rmwc/Snackbar";
+import "../css/page-card.css";
 
 const tableColumns = [
   {
@@ -15,7 +16,7 @@ const tableColumns = [
     key: "auditor",
     label: "Auditor",
     render: (name, all) => (
-      <Select options={{ "1": "Rupert", "2": "Henry", "3": "Shaun" }} />
+      <Select style={{width: 400 }} options={{ "1": "Rupert", "2": "Henry", "3": "Shaun" }} />
     ),
     style: {
       padding: 5
@@ -31,42 +32,125 @@ const tableData = [
     name: "Jean"
   }
 ];
+//Status table
+
+const statusTableColumns = [
+  {
+    key: "name",
+    label: "Auditee",
+    sortable: true
+  },
+  {
+    key: "auditor",
+    label: "Auditor"
+  },
+  {
+    key: "status",
+    label: "Status"
+  },
+  {
+    key: "rating",
+    label: "Rating"
+  },
+  {
+    key: "finalStatus",
+    label: "Final Status"
+  }
+];
+
+// const statusTableData = [
+//   {
+//     name: "John",
+//     auditor: "Rupert",
+//     status: "In progress",
+//     rating: 10,
+//     finalStatus: "Good"
+//   },
+//   {
+//     name: "Jenna",
+//     auditor: "Rupert",
+//     status: "In progress",
+//     rating: 10,
+//     finalStatus: "Good"
+//   },
+//   {
+//     name: "Alex",
+//     auditor: "Rupert",
+//     status: "In progress",
+//     rating: 10,
+//     finalStatus: "Good"
+//   },
+// ];
 export default class Organizer extends Component {
   constructor(props) {
     super();
     this.state = {
-      snackbarIsOpen: false
-    }
+      snackbarIsOpen: false,
+      statusTableData : [
+        {
+          name: "John",
+          auditor: "Rupert",
+          status: "In progress",
+          rating: 10,
+          finalStatus: "Good"
+        },
+        {
+          name: "Jenna",
+          auditor: "Rupert",
+          status: "In progress",
+          rating: 10,
+          finalStatus: "Good"
+        },
+        {
+          name: "Alex",
+          auditor: "Rupert",
+          status: "In progress",
+          rating: 10,
+          finalStatus: "Good"
+        },
+      ],
+      newArray: []
+    };
+  }
+  handleFilterValueChange = (searchText ) => {
+    let newArray = this.state.statusTableData.filter(data => data.name.includes(searchText))
+    this.setState();
   }
 
   render() {
     return (
       <div>
         <h2>Organizer</h2>
-        <h3>Auditees for next month</h3>
+        <div className="page-card">
 
-        <MuiThemeProvider>
-          <DataTables
-            height={"auto"}
-            selectable={true}
-            enableSelectAll={true}
-            showRowHover={true}
-            multiSelectable={true}
-            columns={tableColumns}
-            data={tableData}
-            showCheckboxes={true}
-            onCellClick={this.handleCellClick}
-            page={1}
-            count={20}
-          />
-        </MuiThemeProvider>
-        <Button
-          raised
-          theme={["primary-bg", "text-primary-on-secondary"]}
-          onClick={()=> {this.setState({snackbarIsOpen: true})}}
-        >
-          Assign
-        </Button>
+          <MuiThemeProvider>
+            <DataTables
+              title = "Auditees for next month"
+              height={"auto"}
+              selectable={true}
+              enableSelectAll={true}
+              showRowHover={true}
+              multiSelectable={true}
+              columns={tableColumns}
+              data={tableData}
+              showCheckboxes={true}
+              onCellClick={this.handleCellClick}
+              page={1}
+              count={20}
+              showHeaderToolbar = {true}
+
+            />
+          </MuiThemeProvider>
+          <Button
+            raised
+            theme={["primary-bg", "text-primary-on-secondary"]}
+            onClick={() => {
+              this.setState({ snackbarIsOpen: true });
+            }}
+          >
+            Assign
+          </Button>
+        </div>
         <Snackbar
           show={this.state.snackbarIsOpen}
           onClose={evt => this.setState({ snackbarIsOpen: false })}
@@ -74,6 +158,30 @@ export default class Organizer extends Component {
           actionText="Dismiss"
           actionHandler={() => {}}
         />
+
+        <div className="page-card">
+
+          <MuiThemeProvider>
+            <DataTables
+              title ="Status"
+              height={"auto"}
+              selectable={true}
+              enableSelectAll={true}
+              showRowHover={true}
+              multiSelectable={true}
+              columns={statusTableColumns}
+              data={this.state.statusTableData}
+              showCheckboxes={true}
+              onCellClick={this.handleCellClick}
+              page={1}
+              count={20}
+              filterHintText
+              filterValue = "John"
+              showHeaderToolbar = {true}
+              onFilterValueChange = {this.handleFilterValueChange}
+            />
+          </MuiThemeProvider>
+        </div>
       </div>
     );
   }
