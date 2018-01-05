@@ -42,7 +42,7 @@ export default class AuditorPage extends Component {
       questionnaireIsOpen: false
     };
   }
-  handleCellClick = event => {
+  handleCellClick = (event,dummy,data,nextdummy) => {
     this.setState({ questionnaireIsOpen: true });
   };
 
@@ -61,6 +61,7 @@ export default class AuditorPage extends Component {
             onCellClick={this.handleCellClick}     
             page={1}
             count={20}
+            headerToolbarMode={'filter'}
           />
         </MuiThemeProvider>
 
