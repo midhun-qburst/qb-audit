@@ -113,10 +113,13 @@ export default class Organizer extends Component {
     };
   }
   handleFilterValueChange = (searchText ) => {
-    let newArray = this.state.statusTableData.filter(data => data.name.includes(searchText))
-    this.setState();
+    let newArray = this.state.statusTableData.filter(data => data.name.includes(searchText)) ;debugger
+    this.setState({newArray: newArray});
+    console.log(this.state.newArray);
   }
-
+  componentDidMount() {
+    this.setState({newArray: this.state.statusTableData});
+  }
   render() {
     return (
       <div>
@@ -170,7 +173,7 @@ export default class Organizer extends Component {
               showRowHover={true}
               multiSelectable={true}
               columns={statusTableColumns}
-              data={this.state.statusTableData}
+              data={this.state.newArray}
               showCheckboxes={true}
               onCellClick={this.handleCellClick}
               page={1}
