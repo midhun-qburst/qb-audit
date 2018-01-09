@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StarRatingsComponent from './StarRatingsComponent';
+import "../css/page-card.css";
 
 export default class Questionnaire extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ handleRating = (keyLabel, rating) => {debugger
 }
   render() {
     return (
-      <form action="">
+      <form action="" className="page-card" >
           <StarRatingsComponent parameter="Learning done in past 6 months  " rating={this.state.learning} keyLabel="learning" handleRating={this.handleRating}/>
           <StarRatingsComponent parameter="Projects in last 6 months " rating={this.state.projects} keyLabel="projects" handleRating={this.handleRating}/>
           <StarRatingsComponent parameter="UI " rating={this.state.ui} keyLabel="ui" handleRating={this.handleRating}/>
@@ -31,7 +32,6 @@ handleRating = (keyLabel, rating) => {debugger
           <StarRatingsComponent parameter="Testing " rating={this.state.testing} keyLabel="testing" handleRating={this.handleRating}/>
           <StarRatingsComponent parameter="Performance " rating={this.state.performance} keyLabel="performance" handleRating={this.handleRating}/>
           <StarRatingsComponent parameter="Plugins & Tools " rating={this.state.tools} keyLabel="tools" handleRating={this.handleRating}/>
-
       </form>
     );
   }

@@ -2,6 +2,7 @@ import LoginPage from "./components/LoginPage";
 import AuditeePage from "./components/AuditeePage";
 import AuditorPage from "./components/AuditorPage";
 import Organizer from "./components/Organizer";
+import Questionnaire from "./components/Questionnaire";
 
 import React, { Component } from "react";
 import { render } from "react-dom";
@@ -63,6 +64,7 @@ class App extends Component {
           <Route path="/auditee" component={AuditeePage} />
           <Route path="/auditor" component={AuditorPage} />
           <Route path="/organizer" component={Organizer} />
+          <Route path="/auditor/q" component={Questionnaire} />
         </div>
       </div>
     );

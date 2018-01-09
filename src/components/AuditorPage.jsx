@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Questionnaire from "./Questionnaire";
 import DataTables from "material-ui-datatables";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { Redirect } from "react-router-dom";
+
 import Dialog, {
   DialogRoot,
   DialogSurface,
@@ -47,6 +49,10 @@ export default class AuditorPage extends Component {
   };
 
   render() {
+    if(this.state.questionnaireIsOpen) {
+      return <Redirect from={"/auditor"} to={"auditor/q"} />;
+
+    }
     return (
       <div>
         <h2>Auditor Page</h2>
@@ -66,7 +72,7 @@ export default class AuditorPage extends Component {
         </MuiThemeProvider>
 
         <Dialog
-          open={this.state.questionnaireIsOpen}
+          open= {false}//{this.state.questionnaireIsOpen}
           onClose={evt => this.setState({ questionnaireIsOpen: false })}
         >
           <DialogRoot>

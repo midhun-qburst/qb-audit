@@ -3,7 +3,7 @@ import "../css/welcome-page.css";
 import { Button } from "rmwc/Button";
 import { FormField } from "rmwc/FormField";
 import { TextField } from "rmwc/TextField";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import UsersData from "../credentials/users.json";
 
 export default class LoginPage extends Component {
