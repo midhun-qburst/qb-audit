@@ -18,12 +18,12 @@ class App extends Component {
   }
   
   render() {
-    let sessionIsValid = false;
+    let sessionIsInvalid = false;
     const sessionType = JSON.parse(sessionStorage.getItem('sessionType'));
     if(sessionType) {
-      sessionIsValid = sessionType ;
+      sessionIsInvalid = sessionType ;
     }
-    const logButton = sessionIsValid ? (
+    const logButton = sessionIsInvalid ? (
       <Link to="/login">
         <Button raised theme={["primary-bg", "text-primary-on-secondary"]} onClick={this.logOff}>
           Log off
