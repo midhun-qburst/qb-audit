@@ -9,15 +9,37 @@ import { BrowserRouter, Link, Route } from "react-router-dom";
 import { Button } from "rmwc/Button";
 
 class App extends Component {
+
+  logOff() {
+    sessionStorage.setItem('sessionType', 'false');
+  }
+  componentWillUnmount() {
+    this.logOff();
+  }
+  
   render() {
+    let sessionIsValid = false;
+    const sessionType = JSON.parse(sessionStorage.getItem('sessionType'));
+    if(sessionType) {
+      sessionIsValid = sessionType ;
+    }
+    const logButton = sessionIsValid ? (
+      <Link to="/login">
+        <Button raised theme={["primary-bg", "text-primary-on-secondary"]} onClick={this.logOff}>
+          Log off
+        </Button>
+      </Link>
+    ) : (
+      <Link to="/login">
+        <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
+          Login
+        </Button>
+      </Link>
+    );
     return (
       <div>
         <nav>
-          <Link to="/login">
-            <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
-              Login
-            </Button>
-          </Link>
+          {logButton}
 
           <Link to="/auditee">
             <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
@@ -41,7 +63,6 @@ class App extends Component {
           <Route path="/auditee" component={AuditeePage} />
           <Route path="/auditor" component={AuditorPage} />
           <Route path="/organizer" component={Organizer} />
-
         </div>
       </div>
     );

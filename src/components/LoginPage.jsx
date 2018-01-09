@@ -20,6 +20,9 @@ export default class LoginPage extends Component {
       }
     };
   }
+  componentDidMount() {
+    sessionStorage.setItem('sessionType', 'false');
+  }
 
   handleUserName = event => {
     this.setState({ userName: event.target.value });
@@ -47,21 +50,21 @@ export default class LoginPage extends Component {
         UsersData[key].password == password
       ) {
         type = UsersData[key].userType;
-
-        debugger;
       }
     });
     if (type === "") {
       alert("Invalid credentials..!!");
     } else {
-      this.setState({ user: { userType: type } });
+      this.setState({ user: { userType: type } });debugger
+      sessionStorage.setItem('sessionType', 'true');
+
     }
 
     console.log(this.state.user);
   };
   render() {
     if (this.state.isLoggedIn)
-      return <Redirect from={"/login"} to={"/" + this.state.user.userType } />;  
+      return <Redirect from={"/login"} to={"/" + this.state.user.userType} />;
     else {
       return (
         <div>

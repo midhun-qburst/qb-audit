@@ -16,7 +16,10 @@ const tableColumns = [
     key: "auditor",
     label: "Auditor",
     render: (name, all) => (
-      <Select style={{width: 400 }} options={{ "1": "Rupert", "2": "Henry", "3": "Shaun" }} />
+      <Select
+        style={{ width: 400 }}
+        options={{ "1": "Rupert", "2": "Henry", "3": "Shaun" }}
+      />
     ),
     style: {
       padding: 5
@@ -58,35 +61,12 @@ const statusTableColumns = [
   }
 ];
 
-// const statusTableData = [
-//   {
-//     name: "John",
-//     auditor: "Rupert",
-//     status: "In progress",
-//     rating: 10,
-//     finalStatus: "Good"
-//   },
-//   {
-//     name: "Jenna",
-//     auditor: "Rupert",
-//     status: "In progress",
-//     rating: 10,
-//     finalStatus: "Good"
-//   },
-//   {
-//     name: "Alex",
-//     auditor: "Rupert",
-//     status: "In progress",
-//     rating: 10,
-//     finalStatus: "Good"
-//   },
-// ];
 export default class Organizer extends Component {
   constructor(props) {
     super();
     this.state = {
       snackbarIsOpen: false,
-      statusTableData : [
+      statusTableData: [
         {
           name: "John",
           auditor: "Rupert",
@@ -107,28 +87,30 @@ export default class Organizer extends Component {
           status: "In progress",
           rating: 10,
           finalStatus: "Good"
-        },
+        }
       ],
       newArray: []
     };
   }
-  handleFilterValueChange = (searchText ) => {
-    let newArray = this.state.statusTableData.filter(data => data.name.includes(searchText)) ;debugger
-    this.setState({newArray: newArray});
+  handleFilterValueChange = searchText => {
+    let newArray = this.state.statusTableData.filter(data =>
+      data.name.includes(searchText)
+    );
+    debugger;
+    this.setState({ newArray: newArray });
     console.log(this.state.newArray);
-  }
+  };
   componentDidMount() {
-    this.setState({newArray: this.state.statusTableData});
+    this.setState({ newArray: this.state.statusTableData });
   }
   render() {
     return (
       <div>
         <h2>Organizer</h2>
         <div className="page-card">
-
           <MuiThemeProvider>
             <DataTables
-              title = "Auditees for next month"
+              title="Auditees for next month"
               height={"auto"}
               selectable={true}
               enableSelectAll={true}
@@ -140,8 +122,7 @@ export default class Organizer extends Component {
               onCellClick={this.handleCellClick}
               page={1}
               count={20}
-              showHeaderToolbar = {true}
-
+              showHeaderToolbar={true}
             />
           </MuiThemeProvider>
           <Button
@@ -163,10 +144,9 @@ export default class Organizer extends Component {
         />
 
         <div className="page-card">
-
           <MuiThemeProvider>
             <DataTables
-              title ="Status"
+              title="Status"
               height={"auto"}
               selectable={true}
               enableSelectAll={true}
@@ -179,9 +159,9 @@ export default class Organizer extends Component {
               page={1}
               count={20}
               filterHintText
-              filterValue = "John"
-              showHeaderToolbar = {true}
-              onFilterValueChange = {this.handleFilterValueChange}
+              filterValue="John"
+              showHeaderToolbar={true}
+              onFilterValueChange={this.handleFilterValueChange}
             />
           </MuiThemeProvider>
         </div>
