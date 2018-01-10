@@ -34,13 +34,6 @@ export default class LoginPage extends Component {
   handleSubmit = () => {
     this.userAuth(this.state.userName, this.state.password);
     this.setState({ isLoggedIn: true });
-    const x = this.state.isLoggedIn;
-
-    // if (this.state.user === "auditee") {
-
-    //   <Redirect from="/login" to="/auditee"/>
-    // }
-    // this.state.user === "auditor" ? <Redirect to="/auditee"/> : null
   };
   userAuth = (name, password) => {
     let type = "";

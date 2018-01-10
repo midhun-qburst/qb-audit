@@ -19,14 +19,12 @@
   },
   "homepage": "https://github.com/mindphreaked/qb-audit#readme",
   "dependencies": {
-    "load-json-file": "^4.0.0",
     "material-ui-datatables": "^0.18.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-star-ratings": "^1.4.0",
-    "rmwc": "0.0.1-rc12",
-    "write-json-file": "^2.3.0"
+    "rmwc": "0.0.1-rc12"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

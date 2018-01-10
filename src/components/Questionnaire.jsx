@@ -3,6 +3,8 @@ import StarRatingsComponent from "./StarRatingsComponent";
 import Button from "rmwc/Button";
 import "../css/page-card.css";
 import TextField from "rmwc/TextField";
+import auditeeJson from "../data/auditee.json";
+
 export default class Questionnaire extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,7 @@ export default class Questionnaire extends Component {
   };
   handleSubmit = () => {
     console.log(this.state);
+    
   };
   render() {
     return (

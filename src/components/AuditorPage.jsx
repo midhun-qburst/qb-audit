@@ -4,17 +4,6 @@ import DataTables from "material-ui-datatables";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { Redirect } from "react-router-dom";
 
-import Dialog, {
-  DialogRoot,
-  DialogSurface,
-  DialogHeader,
-  DialogHeaderTitle,
-  DialogBody,
-  DialogFooter,
-  DialogFooterButton,
-  DialogBackdrop
-} from "rmwc/Dialog";
-
 const tableColumns = [
   {
     key: "name",
