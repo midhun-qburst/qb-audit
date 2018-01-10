@@ -29,11 +29,13 @@ const tableColumns = [
 const tableData = [
   {
     name: "John",
-    rating: "9"
+    rating: "9",
+    id: 1
   },
   {
     name: "Jean",
-    rating: "8"
+    rating: "8",
+    id: 2
   }
 ];
 export default class AuditorPage extends Component {
@@ -41,17 +43,17 @@ export default class AuditorPage extends Component {
     super(props);
     this.handleCellClick = this.handleCellClick.bind(this);
     this.state = {
-      questionnaireIsOpen: false
+      questionnaireIsOpen: false,
+      auditeeId: -1
     };
   }
-  handleCellClick = (event,dummy,data,nextdummy) => {
-    this.setState({ questionnaireIsOpen: true });
+  handleCellClick = (event, dummy, data, nextdummy) => {
+    this.setState({ questionnaireIsOpen: true, auditeeId: data.id });
   };
 
   render() {
-    if(this.state.questionnaireIsOpen) {
-      return <Redirect from={"/auditor"} to={"auditor/q"} />;
-
+    if (this.state.questionnaireIsOpen) {
+      return <Redirect from={"/auditor"} to={"q/" + this.state.auditeeId} />;
     }
     return (
       <div>
@@ -64,33 +66,12 @@ export default class AuditorPage extends Component {
             columns={tableColumns}
             data={tableData}
             showCheckboxes={false}
-            onCellClick={this.handleCellClick}     
+            onCellClick={this.handleCellClick}
             page={1}
             count={20}
-            headerToolbarMode={'filter'}
+            headerToolbarMode={"filter"}
           />
         </MuiThemeProvider>
-
-        <Dialog
-          open= {false}//{this.state.questionnaireIsOpen}
-          onClose={evt => this.setState({ questionnaireIsOpen: false })}
-        >
-          <DialogRoot>
-            <DialogSurface>
-              <DialogHeader>
-                <DialogHeaderTitle>Audit Parameters</DialogHeaderTitle>
-              </DialogHeader>
-              <DialogBody>
-                <Questionnaire />
-              </DialogBody>
-              <DialogFooter>
-                <DialogFooterButton cancel>Cancel</DialogFooterButton>
-                <DialogFooterButton accept>Save</DialogFooterButton>
-              </DialogFooter>
-            </DialogSurface>
-            <DialogBackdrop />
-          </DialogRoot>
-        </Dialog>
       </div>
     );
   }

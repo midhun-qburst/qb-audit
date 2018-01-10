@@ -4,7 +4,7 @@ import { Button } from "rmwc/Button";
 import { FormField } from "rmwc/FormField";
 import { TextField } from "rmwc/TextField";
 import { Redirect } from "react-router-dom";
-import UsersData from "../credentials/users.json";
+import UsersData from "../data/users.json";
 
 export default class LoginPage extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class LoginPage extends Component {
     };
   }
   componentDidMount() {
-    sessionStorage.setItem('sessionType', 'false');
+    sessionStorage.setItem("sessionType", "false");
   }
 
   handleUserName = event => {
@@ -55,9 +55,9 @@ export default class LoginPage extends Component {
     if (type === "") {
       alert("Invalid credentials..!!");
     } else {
-      this.setState({ user: { userType: type } });debugger
-      sessionStorage.setItem('sessionType', 'true');
-
+      this.setState({ user: { userType: type } });
+      debugger;
+      sessionStorage.setItem("sessionType", "true");
     }
 
     console.log(this.state.user);
