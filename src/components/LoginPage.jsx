@@ -49,7 +49,6 @@ export default class LoginPage extends Component {
       alert("Invalid credentials..!!");
     } else {
       this.setState({ user: { userType: type } });
-      debugger;
       sessionStorage.setItem("sessionType", "true");
     }
 

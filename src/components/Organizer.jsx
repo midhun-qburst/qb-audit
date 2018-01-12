@@ -96,7 +96,6 @@ export default class Organizer extends Component {
     let newArray = this.state.statusTableData.filter(data =>
       data.name.includes(searchText)
     );
-    debugger;
     this.setState({ newArray: newArray });
     console.log(this.state.newArray);
   };

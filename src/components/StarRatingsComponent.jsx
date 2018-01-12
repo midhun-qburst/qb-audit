@@ -4,7 +4,7 @@ import StarRatings from "react-star-ratings";
 export default class StarRatingsComponent extends Component {
   
 
-  sendLabel = (rating)=> {debugger
+  sendLabel = (rating)=> {
     this.props.handleRating(this.props.keyLabel, rating);
 
   }
