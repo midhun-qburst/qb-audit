@@ -10100,34 +10100,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           "nav",
           null,
-          logButton,
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: "/auditee" },
-            _react2.default.createElement(
-              _Button.Button,
-              { raised: true, theme: ["primary-bg", "text-primary-on-secondary"] },
-              "Auditee"
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: "/auditor" },
-            _react2.default.createElement(
-              _Button.Button,
-              { raised: true, theme: ["primary-bg", "text-primary-on-secondary"] },
-              "Auditor"
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: "/organizer" },
-            _react2.default.createElement(
-              _Button.Button,
-              { raised: true, theme: ["primary-bg", "text-primary-on-secondary"] },
-              "Organizer"
-            )
-          )
+          logButton
         ),
         _react2.default.createElement(
           "div",
@@ -10222,7 +10195,6 @@ var LoginPage = function (_Component) {
         alert("Invalid credentials..!!");
       } else {
         _this.setState({ user: { userType: type } });
-        debugger;
         sessionStorage.setItem("sessionType", "true");
       }
 
@@ -57508,7 +57480,6 @@ var StarRatingsComponent = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = StarRatingsComponent.__proto__ || Object.getPrototypeOf(StarRatingsComponent)).call.apply(_ref, [this].concat(args))), _this), _this.sendLabel = function (rating) {
-      debugger;
       _this.props.handleRating(_this.props.keyLabel, rating);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -58108,7 +58079,6 @@ var Organizer = function (_Component) {
       var newArray = _this.state.statusTableData.filter(function (data) {
         return data.name.includes(searchText);
       });
-      debugger;
       _this.setState({ newArray: newArray });
       console.log(_this.state.newArray);
     };
