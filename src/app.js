@@ -45,22 +45,7 @@ class App extends Component {
         <nav>
           {logButton}
 
-          <Link to="/auditee">
-            <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
-              Auditee
-            </Button>
-          </Link>
-
-          <Link to="/auditor">
-            <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
-              Auditor
-            </Button>
-          </Link>
-          <Link to="/organizer">
-            <Button raised theme={["primary-bg", "text-primary-on-secondary"]}>
-              Organizer
-            </Button>
-          </Link>
+          
         </nav>
         <div>
           <Route path="/login" component={LoginPage} />
